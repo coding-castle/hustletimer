@@ -16,7 +16,7 @@
 <p>Send feedback, questions or just say hi 👋</p>
 
 <div class="w-full max-w-xs mx-auto">
-  <form class="px-8 pt-6 pb-8 mb-4" on:submit|preventDefault={submit}>
+  <form class="px-8 pt-6 pb-8 mb-4" netlify>
     <div class="mb-4">
       <label class="block text-hyellow text-sm font-bold mb-2" for="name">
         Name
