@@ -7,6 +7,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "sapper dev",
+    "buildNetlify": "sapper build --legacy",
     "build": "set NODE_ENV=production && sapper build --legacy",
     "export": "set NODE_ENV=production && sapper export --legacy",
     "start": "node __sapper__/build",
