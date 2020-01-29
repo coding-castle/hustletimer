@@ -6,13 +6,14 @@
 
 <style>
   div {
+    box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.15);
     @apply w-full bg-hyellow text-hdark flex flex-row justify-center items-center;
   }
   nav {
     @apply h-16 w-full max-w-6xl flex flex-row justify-around items-center;
   }
   a {
-    @apply opacity-50 font-bold relative;
+    @apply opacity-50 font-bold relative px-4;
   }
   .selected {
     @apply opacity-100;
@@ -26,7 +27,7 @@
 
 <div>
   <nav>
-    <Btn type="button" data-theme="nav" class="px-4">
+    <Btn type="button" data-theme="nav">
       <a class:selected={segment === 'about'} href="about">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -39,12 +40,12 @@
             2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
         </svg>
         {#if segment === 'about'}
-          <span transition:slide>ABOUT</span>
+          <span>ABOUT</span>
         {/if}
       </a>
 
     </Btn>
-    <Btn data-theme="nav" type="button" class="px-4">
+    <Btn data-theme="nav" type="button">
       <a class:selected={segment === undefined} href=".">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -60,12 +61,12 @@
             3.13 7 7-3.13 7-7 7z" />
         </svg>
         {#if segment === undefined}
-          <span transition:slide>TIMER</span>
+          <span>TIMER</span>
         {/if}
       </a>
 
     </Btn>
-    <Btn data-theme="nav" type="button" class="px-4">
+    <Btn data-theme="nav" type="button">
       <a class:selected={segment === 'contact'} href="contact">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +82,7 @@
           <path d="M0 0h24v24H0z" fill="none" />
         </svg>
         {#if segment === 'contact'}
-          <span transition:slide>CONTACT</span>
+          <span>CONTACT</span>
         {/if}
       </a>
 

@@ -1,5 +1,6 @@
 <script>
   export let done;
+  export let inProgress;
   import { fade } from "svelte/transition";
 </script>
 
@@ -14,9 +15,18 @@
   .filled {
     @apply bg-hyellow;
   }
+  .pulse {
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    50% {
+      transform: scale(1.1);
+    }
+  }
 </style>
 
-<div class="counter" class:filled={done}>
+<div class="counter" class:filled={done} class:pulse={inProgress}>
   {#if done}
     <svg
       transition:fade
