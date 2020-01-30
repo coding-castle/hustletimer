@@ -4,6 +4,23 @@
   import Title from "../components/Title.svelte";
 
   export let segment;
+  const gaId = process.env.TRACKING_ID;
+
+  const googleAnalytics = gaID => {
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", gaID);
+
+    const script = document.createElement("script");
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${gaID}`;
+    document.body.appendChild(script);
+  };
+
+  if (gaId) googleAnalytics(gaId);
 </script>
 
 <style>

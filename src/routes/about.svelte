@@ -1,6 +1,6 @@
 <style>
   .question {
-    @apply font-bold text-left mt-4;
+    @apply font-bold text-left mt-4 mb-2;
   }
   .answer {
     @apply text-left;
@@ -10,7 +10,7 @@
 <svelte:head>
   <title>About</title>
 </svelte:head>
-<div class="w-full max-w-xs mx-auto">
+<div class="w-full max-w-md mx-auto">
   <h2 class="text-6xl">About</h2>
   <p class="question">What is the Pomodoro Technique?</p>
   <p class="answer">
