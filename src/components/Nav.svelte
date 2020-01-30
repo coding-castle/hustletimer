@@ -13,7 +13,7 @@
     @apply h-16 w-full max-w-6xl flex flex-row justify-around items-center;
   }
   a {
-    @apply opacity-50 font-bold relative px-4;
+    @apply opacity-75 font-bold relative px-4;
   }
   .selected {
     @apply opacity-100;

@@ -13,11 +13,7 @@
 <p>Send feedback, questions or just say hi 👋</p>
 
 <div class="w-full max-w-xs mx-auto">
-  <form
-    method="POST"
-    name="contact"
-    class="px-8 pt-6 pb-8 mb-4"
-    data-netlify="true">
+  <form name="contact" class="px-8 pt-6 pb-8 mb-4" data-netlify="true">
     <div class="mb-4">
       <label class="block text-hyellow text-sm font-bold mb-2" for="name">
         Name
