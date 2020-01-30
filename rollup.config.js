@@ -10,6 +10,7 @@ import sveltePreprocess from "svelte-preprocess";
 import pkg from "./package.json";
 
 const mode = process.env.NODE_ENV;
+const TRACKING_ID = process.env.TRACKING_ID;
 const dev = mode === "development";
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
 
@@ -31,7 +32,8 @@ export default {
     plugins: [
       replace({
         "process.browser": true,
-        "process.env.NODE_ENV": JSON.stringify(mode)
+        "process.env.NODE_ENV": JSON.stringify(mode),
+        "process.env.TRACKING_ID": JSON.stringify(TRACKING_ID)
       }),
       svelte({
         preprocess,

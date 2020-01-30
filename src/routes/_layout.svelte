@@ -2,9 +2,14 @@
   import Tailwindcss from "../components/Tailwindcss.svelte";
   import Nav from "../components/Nav.svelte";
   import Title from "../components/Title.svelte";
+  import { onMount } from "svelte";
 
   export let segment;
-  const gaId = process.env.TRACKING_ID;
+
+  onMount(async () => {
+    const gaId = process.env.TRACKING_ID;
+    if (gaId) googleAnalytics(gaId);
+  });
 
   const googleAnalytics = gaID => {
     window.dataLayer = window.dataLayer || [];
@@ -19,8 +24,6 @@
     script.src = `https://www.googletagmanager.com/gtag/js?id=${gaID}`;
     document.body.appendChild(script);
   };
-
-  if (gaId) googleAnalytics(gaId);
 </script>
 
 <style>

@@ -9,7 +9,7 @@
     "dev": "sapper dev",
     "buildNetlify": "sapper export",
     "build": "sapper export",
-    "export": "set NODE_ENV=production && sapper export",
+    "export": "set NODE_ENV=production && set TRACKING_ID=testid && sapper export",
     "start": "node __sapper__/build",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
