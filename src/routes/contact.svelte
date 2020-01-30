@@ -16,10 +16,17 @@
   <form
     name="contact"
     method="POST"
+    netlify-honeypot="bot-field"
     action="/contact"
     class="px-8 pt-6 pb-8 mb-4"
     data-netlify="true">
-    <input type="hidden" name="form-name" value="contact" />
+    <p class="hidden">
+      <label>
+        Don’t fill this out if you're human:
+        <input name="bot-field" />
+      </label>
+      <input type="hidden" name="form-name" value="contact" />
+    </p>
     <div class="mb-4">
       <label class="block text-hyellow text-sm font-bold mb-2" for="name">
         Name
