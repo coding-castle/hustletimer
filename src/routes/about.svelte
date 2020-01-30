@@ -8,7 +8,7 @@
 </style>
 
 <svelte:head>
-  <title>About</title>
+  <title>About | Hustle Timer - Pomodoro Timer App</title>
 </svelte:head>
 <div class="w-full max-w-md mx-auto">
   <h2 class="text-6xl">About</h2>

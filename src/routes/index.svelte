@@ -105,7 +105,7 @@
 </style>
 
 <svelte:head>
-  <title>Sapper project template</title>
+  <title>Hustle Timer - Pomodoro Timer App</title>
 </svelte:head>
 
 <audio bind:this={startAudio}>

@@ -7,7 +7,7 @@
 </script>
 
 <svelte:head>
-  <title>Contact</title>
+  <title>Contact | Hustle Timer - Pomodoro Timer App</title>
 </svelte:head>
 <h2 class="text-6xl">Contact</h2>
 <p>Send feedback, questions or just say hi 👋</p>
