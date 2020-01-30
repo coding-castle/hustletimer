@@ -13,7 +13,11 @@
 <p>Send feedback, questions or just say hi 👋</p>
 
 <div class="w-full max-w-xs mx-auto">
-  <form name="contact" class="px-8 pt-6 pb-8 mb-4" netlify>
+  <form
+    method="POST"
+    name="contact"
+    class="px-8 pt-6 pb-8 mb-4"
+    data-netlify="true">
     <div class="mb-4">
       <label class="block text-hyellow text-sm font-bold mb-2" for="name">
         Name
@@ -23,6 +27,7 @@
         px-3 text-hyellow leading-tight focus:outline-none focus:shadow-outline"
         id="name"
         type="text"
+        name="name"
         placeholder="Your Name..." />
     </div>
     <div class="mb-4">
@@ -34,6 +39,7 @@
         px-3 text-hyellow leading-tight focus:outline-none focus:shadow-outline"
         id="email"
         type="text"
+        name="email"
         placeholder="Your E-Mail..." />
     </div>
     <div class="mb-6">
@@ -45,7 +51,7 @@
         px-3 text-hyellow mb-3 leading-tight focus:outline-none
         focus:shadow-outline"
         id="message"
-        type="email"
+        name="message"
         placeholder="Some Feedback..." />
     </div>
     <div class="flex items-center justify-center">
