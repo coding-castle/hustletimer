@@ -7,6 +7,7 @@ const purgecss = require("@fullhuman/postcss-purgecss")({
 });
 
 const production = process.env.NODE_ENV !== "development";
+console.log(`production: ${production}`);
 
 module.exports = {
   plugins: [require("tailwindcss"), ...(production ? [purgecss] : [])]

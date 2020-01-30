@@ -7,9 +7,9 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "sapper dev",
-    "buildNetlify": "sapper export --legacy",
-    "build": "set NODE_ENV=production && sapper build --legacy",
-    "export": "set NODE_ENV=production && sapper export --legacy",
+    "buildNetlify": "sapper export",
+    "build": "sapper export",
+    "export": "set NODE_ENV=production && sapper export",
     "start": "node __sapper__/build",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
