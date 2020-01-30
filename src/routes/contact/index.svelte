@@ -1,5 +1,5 @@
 <script>
-  import Btn from "../components/Btn.svelte";
+  import Btn from "../../components/Btn.svelte";
 
   function submit() {
     console.log(name, email, message);
@@ -17,7 +17,7 @@
     name="contact"
     method="POST"
     netlify-honeypot="bot-field"
-    action="/contact"
+    action="/contact/success"
     class="px-8 pt-6 pb-8 mb-4"
     data-netlify="true">
     <p class="hidden">
