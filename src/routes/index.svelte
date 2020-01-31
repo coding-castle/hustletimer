@@ -8,9 +8,9 @@
     current,
     remainingPomos
   } from "../stores";
-  const HUSTLEMINS = 0.5;
-  const SHORTBREAKMINS = 0.1;
-  const LONGBREAKMINS = 0.2;
+  const HUSTLEMINS = 25;
+  const SHORTBREAKMINS = 5;
+  const LONGBREAKMINS = 15;
   let interval;
   let startAudio;
   let endAudio;
