@@ -22,29 +22,33 @@
       playStart();
       $current = "hustle";
       $time = HUSTLEMINS * 60;
-      // worker = new Worker("timeWorker.js");
-      // worker.onmessage = function(event) {
-      //   $time = event.data;
-      //   if ($time === 0) {
-      //     changeStatus();
-      //   }
-      // };
+      if (worker) {
+        worker.postMessage(["stop"]);
+        worker.terminate();
+        worker = undefined;
+      }
+      worker = new Worker("timeWorker.js");
+      worker.onmessage = function(event) {
+        $time = event.data;
+        if ($time === 0) {
+          changeStatus();
+        }
+      };
     }
 
     if ($running) {
       $running = false;
-      // worker.postMessage(["stop"]);
-      clearInterval($timerInterval);
+      worker.postMessage(["stop"]);
+      // clearInterval($timerInterval);
     } else {
       $running = true;
-      // worker.postMessage(["start", $time]);
-      // console.log(worker);
-      $timerInterval = setInterval(() => {
-        $time = $time - 1;
-        if ($time === 0) {
-          changeStatus();
-        }
-      }, 1000);
+      worker.postMessage(["start", $time]);
+      // $timerInterval = setInterval(() => {
+      //   $time = $time - 1;
+      //   if ($time === 0) {
+      //     changeStatus();
+      //   }
+      // }, 1000);
     }
   }
 
@@ -68,7 +72,7 @@
       $current = "hustle";
       $time = HUSTLEMINS * 60;
     }
-    // worker.postMessage(["start", $time]);
+    worker.postMessage(["start", $time]);
   }
 
   function reset() {
@@ -76,9 +80,9 @@
     $time = HUSTLEMINS * 60;
     $remainingPomos = 4;
     $current = "ready, set";
-    // worker.postMessage(["stop"]);
-    clearInterval($timerInterval);
-    $timerInterval = null;
+    worker.postMessage(["stop"]);
+    // clearInterval($timerInterval);
+    // $timerInterval = null;
   }
 
   function playStart() {
