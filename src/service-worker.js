@@ -85,3 +85,19 @@ self.addEventListener("fetch", event => {
     })
   );
 });
+
+self.addEventListener("updatefound", function() {
+  console.log("inside updatefound");
+  let worker = self.installing;
+  worker.addEventListener("statechange", function() {
+    if (worker.state == "installed") {
+      console.log("Is installed");
+      confirm("An Update is available. Please Refresh.");
+      // Here you can notify the user, that a new version exist.
+      // Show a toast view, asking the user to upgrade.
+      // The user accepts.
+      // Send a message to the sw, to skip wating.
+      worker.postMessage({ action: "skipWaiting" });
+    }
+  });
+});

@@ -3,7 +3,7 @@
   "theme_color": "#FBF005",
   "name": "HUSTLE TIMER",
   "short_name": "TIMER",
-  "display": "minimal-ui",
+  "display": "standalone",
   "start_url": "/",
   "icons": [
     {
