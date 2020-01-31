@@ -8,12 +8,13 @@
     current,
     remainingPomos
   } from "../stores";
-  const HUSTLEMINS = 25;
-  const SHORTBREAKMINS = 5;
-  const LONGBREAKMINS = 15;
+  const HUSTLEMINS = 0.5;
+  const SHORTBREAKMINS = 0.1;
+  const LONGBREAKMINS = 0.2;
   let interval;
   let startAudio;
   let endAudio;
+  let worker;
   function changeRunning() {
     // if current is not set it means that the timer is fresh and we need to ring the bell on start
     if ($current === "ready, set") {
@@ -21,19 +22,29 @@
       playStart();
       $current = "hustle";
       $time = HUSTLEMINS * 60;
+      worker = new Worker("timeWorker.js");
+      worker.onmessage = function(event) {
+        $time = event.data;
+        if ($time === 0) {
+          changeStatus();
+        }
+      };
     }
 
     if ($running) {
       $running = false;
-      clearInterval($timerInterval);
+      worker.postMessage(["stop"]);
+      // clearInterval($timerInterval);
     } else {
       $running = true;
-      $timerInterval = setInterval(() => {
-        $time = $time - 1;
-        if ($time === 0) {
-          changeStatus();
-        }
-      }, 1000);
+      worker.postMessage(["start", $time]);
+      console.log(worker);
+      // $timerInterval = setInterval(() => {
+      //   $time = $time - 1;
+      //   if ($time === 0) {
+      //     changeStatus();
+      //   }
+      // }, 1000);
     }
   }
 
@@ -57,6 +68,7 @@
       $current = "hustle";
       $time = HUSTLEMINS * 60;
     }
+    worker.postMessage(["start", $time]);
   }
 
   function reset() {
@@ -64,7 +76,8 @@
     $time = HUSTLEMINS * 60;
     $remainingPomos = 4;
     $current = "ready, set";
-    clearInterval($timerInterval);
+    worker.postMessage(["stop"]);
+    // clearInterval($timerInterval);
     $timerInterval = null;
   }
 
