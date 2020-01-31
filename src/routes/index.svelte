@@ -126,7 +126,7 @@
 </svelte:head>
 
 <audio bind:this={startAudio}>
-  <source src="start.ogg" type="audio/ogg" />
+  <source src="start2.mp3" type="audio/mp3" />
   Your browser does not support the audio element.
 </audio>
 <audio bind:this={endAudio}>
